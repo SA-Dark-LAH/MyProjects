@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
-static char    *line_finder_b(int fd, char *remain, char *buff)
+static char	*line_finder(int fd, char *remain, char *buff)
 {
 	int		b_read;
 	char	*line;
@@ -50,7 +50,7 @@ static char	*get_line_b(char *remain)
 		return (NULL);
 	while (remain[i] && remain[i] != '\n')
 		i++;
-	if (!remain[1])
+    if (!remain[1])
         holder = malloc(2);
     else if (!remain[i])
         holder = malloc(i + 1);
@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	tmp_buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!tmp_buffer)
 		return (NULL);
-	remain_data[fd] = line_finder_b(fd, remain_data[fd], tmp_buffer);
+	remain_data[fd] = line_finder(fd, remain_data[fd], tmp_buffer);
 	free(tmp_buffer);
 	if (!remain_data[fd])
 		return (NULL);
