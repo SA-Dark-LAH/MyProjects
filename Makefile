@@ -1,43 +1,28 @@
 # Name of the library
 NAME = libftprintf.a
 
-# Compiler and flags
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
 # Source files
-SRCS = ft_printf.c ft_flags.c ft_specifiers.c ft_helpers.c hex_number.c
+SRC = ft_printf.c ft_flags.c ft_specifiers.c ft_helpers.c hex_number.c
 
-# Object files
-OBJS = $(SRCS:.c=.o)
 
-# Header files
-HEADERS = ft_printf.h
+OBJS = $(SRC:.c=.o)
 
-# Rule to create the library
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+AR = ar crs
+
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-# Compile all files
 all: $(NAME)
 
-# Clean object files
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
-# Clean object files and library
-fclean: clean
-	rm -f $(NAME)
+fclean:	clean
+	$(RM) $(NAME)		
 
-# Recompile everything
-re: fclean all
+re:	fclean all
 
-# Bonus rule (add bonus files if necessary)
-bonus:
-	$(MAKE) SRCS="$(SRCS)" all
-
-# Dependencies
-%.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-.PHONY: all clean fclean re bonus
+.PHONY:	all clean fclean re

@@ -26,9 +26,9 @@ void	ft_put_hex(unsigned int num, int uppercase)
 			ft_putchar((num + '0'));
 		else
 		{
-			if (!uppercase)
+			if (uppercase == 0)
 				ft_putchar((num - 10 + 'a'));
-			if (uppercase)
+			if (uppercase == 1)
 				ft_putchar((num - 10 + 'A'));
 		}
 	}
