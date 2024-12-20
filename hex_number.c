@@ -40,5 +40,5 @@ int	ft_puthex(unsigned int num, int uppercase)
 		return (write(1, "0", 1));
 	else
 		ft_put_hex(num, uppercase);
-	return (5);
+	return (hex_len(num));
 }
