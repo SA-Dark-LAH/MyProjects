@@ -34,7 +34,7 @@ re: fclean all
 
 # Bonus rule (add bonus files if necessary)
 bonus:
-	$(MAKE) SRCS="$(SRCS) ft_bonus.c" all
+	$(MAKE) SRCS="$(SRCS)" all
 
 # Dependencies
 %.o: %.c $(HEADERS)
