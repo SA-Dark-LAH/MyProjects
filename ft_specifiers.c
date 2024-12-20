@@ -13,9 +13,9 @@ int handle_specifier(const char **format, va_list args, t_flags flags) {
     else if (**format == 'u')
         printed_chars = handle_unsigned(args);
     else if (**format == 'x')
-        handle_hex(args, flags, 0); // Lowercase hexadecimal
+        printed_chars = handle_hex(args, flags, 0); // Lowercase hexadecimal
     else if (**format == 'X')
-        handle_hex(args, flags, 1);
+        printed_chars = handle_hex(args, flags, 1);
     else if (**format == '%')
         printed_chars = ft_putchar('%');
     (*format)++;
