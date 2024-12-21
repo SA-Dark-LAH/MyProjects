@@ -34,8 +34,9 @@ int	ft_putptr(uintptr_t ptr)
 	int	char_printed;
 
 	char_printed = 0;
+	if(ptr)
 	char_printed += write(1, "0x", 2);
-	if (ptr == 0)
+	if (!ptr)
 		char_printed += write(1, "(nil)", 5);
 	else
 	{
