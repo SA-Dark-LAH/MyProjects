@@ -36,7 +36,7 @@ int	ft_putptr(uintptr_t ptr)
 	char_printed = 0;
 	char_printed += write(1, "0x", 2);
 	if (ptr == 0)
-		char_printed += write(1, "(nil)", 5);
+		char_printed += write(1, "0", 1);
 	else
 	{
 		ft_put_ptr(ptr);
